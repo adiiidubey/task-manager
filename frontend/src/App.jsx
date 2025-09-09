@@ -1,4 +1,3 @@
-// frontend/src/App.js
 import React, { useEffect, useState } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
@@ -12,7 +11,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      let url = "http://localhost:4000/api/tasks";
+      let url = `http://localhost:${import.meta.env.VITE_API_PORT}/api/tasks`;
       if (filter !== "all") {
         url += `?status=${filter}`;
       }
