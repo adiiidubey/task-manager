@@ -1,90 +1,88 @@
 # ✅ Task Manager (MERN Stack)
 
-A modern and responsive Task Manager Web App built with the MERN stack (MongoDB, Express, React, Node.js).  
-Add, edit, delete and filter tasks with a clean UI.
+A simple, responsive Task Manager web app built with MongoDB, Express, React and Node.js.  
+Add, edit, delete and filter tasks. Designed for clarity and easy local development.
 
----
+Table of contents
 
-## 📂 Folder structure
+- Project overview
+- Folder structure (clickable file links below)
+- Important files
+- Run locally
+- API & notes
 
+Project overview
+A small MERN app that demonstrates a CRUD API (Express + MongoDB) and a React (Vite) frontend
+with Tailwind styling and accessible, portal-backed dropdowns for status selection.
+
+Folder structure
 task-manager/
 ├── backend/
-│   ├── src/
-│   │   ├── models/
-│   │   │   └── [`Task` model`](backend/src/models/task.model.js)
-│   │   └── routes/
-│   │       └── [`taskRoutes`](backend/src/routes/taskRoutes.js)
-│   ├── [`server.js`](backend/server.js)
-│   └── [`package.json`](backend/package.json)
-│
+│ ├── src/
+│ │ ├── models/
+│ │ │ └── task.model.js
+│ │ └── routes/
+│ │ └── taskRoutes.js
+│ ├── server.js
+│ └── package.json
 ├── frontend/
-│   ├── public/
-│   │   └── vite.svg
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── [`TaskForm.jsx`](frontend/src/components/TaskForm.jsx)
-│   │   │   └── [`TaskList.jsx`](frontend/src/components/TaskList.jsx)
-│   │   ├── [`App.jsx`](frontend/src/App.jsx)
-│   │   ├── [`main.jsx`](frontend/src/main.jsx)
-│   │   └── [`index.css`](frontend/src/index.css)
-│   ├── [`vite.config.js`](frontend/vite.config.js)
-│   ├── [`package.json`](frontend/package.json)
-│   └── [`.env`](frontend/.env)
-│
-└── [`Readme.md`](Readme.md)
+│ ├── public/
+│ │ └── (static assets)
+│ ├── src/
+│ │ ├── components/
+│ │ │ ├── TaskForm.jsx
+│ │ │ └── TaskList.jsx
+│ │ ├── App.jsx
+│ │ ├── main.jsx
+│ │ └── index.css
+│ ├── vite.config.js
+│ ├── package.json
+│ └── .env
+└── README.md
 
----
-
-## About the application
-
-- Frontend
-  - React + Hooks with functional components ([`App.jsx`](frontend/src/App.jsx)).
-  - Tailwind CSS used for styling ([`index.css`](frontend/src/index.css) and [`vite.config.js`](frontend/vite.config.js)).
-  - Lucide icons used in UI components ([`TaskForm.jsx`](frontend/src/components/TaskForm.jsx), [`TaskList.jsx`](frontend/src/components/TaskList.jsx)).
+Important files (click to open)
 
 - Backend
-  - Express API with standard CRUD routes defined in [`taskRoutes`](backend/src/routes/taskRoutes.js).
-  - MongoDB + Mongoose for persistence with the [`Task` model](backend/src/models/task.model.js).
-  - Server entry in [`server.js`](backend/server.js).
 
----
+  - [backend/src/models/task.model.js](backend/src/models/task.model.js) — Mongoose Task model (title, description, status)
+  - [backend/src/routes/taskRoutes.js](backend/src/routes/taskRoutes.js) — CRUD API routes for tasks
+  - [backend/server.js](backend/server.js) — Express server entry, loads .env and connects to MongoDB
 
-## API (overview)
+- Frontend
+  - [frontend/src/components/TaskForm.jsx](frontend/src/components/TaskForm.jsx) — Create task form with portal dropdown
+  - [frontend/src/components/TaskList.jsx](frontend/src/components/TaskList.jsx) — Task list, edit/update/delete UI
+  - [frontend/src/App.jsx](frontend/src/App.jsx) — Main React app and task fetching/filtering
+  - [frontend/vite.config.js](frontend/vite.config.js) — Vite + Tailwind setup
 
-- GET /api/tasks — list tasks (optional ?status=pending|in-progress|done) — implemented in [`taskRoutes`](backend/src/routes/taskRoutes.js)  
-- GET /api/tasks/:id — get single task — [`taskRoutes`](backend/src/routes/taskRoutes.js)  
-- POST /api/tasks — create task — [`taskRoutes`](backend/src/routes/taskRoutes.js)  
-- PUT /api/tasks/:id — update task — [`taskRoutes`](backend/src/routes/taskRoutes.js)  
-- DELETE /api/tasks/:id — delete task — [`taskRoutes`](backend/src/routes/taskRoutes.js)
-
-Model: [`Task`](backend/src/models/task.model.js) with fields: title (required), description, status (pending | in-progress | done).
-
----
-
-## Environment
-
-- Backend: set MONGO_URI and PORT in backend `.env` (loaded in [`server.js`](backend/server.js)).  
-- Frontend: [`frontend/.env`](frontend/.env) contains VITE_API_PORT (default 4000) used by the client.
-
----
-
-## Run locally
+Run locally (quick)
 
 1. Backend
+
    - cd backend
-   - install: npm install
-   - dev: npm run dev (uses nodemon) or npm run server to run node server
-   - Entry: [`server.js`](backend/server.js)
+   - npm install
+   - copy .env.example -> .env and set MONGO_URI and PORT
+   - npm run dev (or npm start)
 
 2. Frontend
    - cd frontend
-   - install: npm install
-   - dev: npm run dev
-   - Open: http://localhost:5173 (Vite default) — API calls target port in [`frontend/.env`](frontend/.env)
+   - npm install
+   - copy .env.example -> .env and set VITE_API_PORT (default 4000)
+   - npm run dev
+   - Open http://localhost:5173
 
----
+API overview
 
-## Notes & references
+- GET /api/tasks — list tasks (optional ?status=pending|in-progress|done)
+- GET /api/tasks/:id — get a single task
+- POST /api/tasks — create task
+- PUT /api/tasks/:id — update task
+- DELETE /api/tasks/:id — delete task
 
-- Main backend files: [`server.js`](backend/server.js), [`taskRoutes`](backend/src/routes/taskRoutes.js), [`Task` model](backend/src/models/task.model.js).  
-- Main frontend files: [`App.jsx`](frontend/src/App.jsx), [`TaskForm.jsx`](frontend/src/components/TaskForm.jsx), [`TaskList.jsx`](frontend/src/components/TaskList.jsx), [`vite.config.js`](frontend/vite.config.js).
+Notes
+
+- Frontend uses portal-mounted dropdowns for status options so options are not clipped by surrounding layout.
+- Tailwind is used for styling; adjust tailwind config in vite.config.js if needed.
+
+License / attribution
+
+- Project scaffolded for demonstration. Update README with your license and contributors as
