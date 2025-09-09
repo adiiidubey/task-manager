@@ -89,19 +89,15 @@ task-manager/
 
 ## Screenshots
 
-Use a responsive <picture> so GitHub (and browsers) show screenshot 1 on large viewports and screenshot 2 on small viewports.
-
 <p align="center">
   <picture>
     <!-- large screens -->
-    <source media="(min-width: 800px)" src="/frontend/src/assets/screenshot-1.png">
+    <h1>For Large Screens</h1>
+    <img src="/frontend/src/assets/screenshot-1.png" alt="Task Manager preview" style="max-width:100%; height:auto; border-radius:8px;">
     <!-- small screens (fallback) -->
+    <br/>
+    <h1>For Small Screens</h1>
     <img src="/frontend/src/assets/screenshot-2.png" alt="Task Manager preview" style="max-width:100%; height:auto; border-radius:8px;">
   </picture>
 </p>
-
-Clickable full-size images:
-
-- Large: [assets/screenshot-1.png](assets/screenshot-1.png)
-- Small: [assets/screenshot-2.png](assets/screenshot-2.png)
 
