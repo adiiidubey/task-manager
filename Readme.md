@@ -70,20 +70,38 @@ task-manager/
 └── [Readme.md]
 ```
 
-
 ## API
- 
- - GET /api/tasks — list tasks (?status=...)
- - GET /api/tasks/:id
- - POST /api/tasks — create { title, description, status }
- - PUT /api/tasks/:id
- - DELETE /api/tasks/:id
+
+- GET /api/tasks — list tasks (?status=...)
+- GET /api/tasks/:id
+- POST /api/tasks — create { title, description, status }
+- PUT /api/tasks/:id
+- DELETE /api/tasks/:id
 
 ## Important files
 
- - backend/src/models/task.model.js — Task schema (title, description, status, timestamps)
- - backend/src/routes/taskRoutes.js — CRUD endpoints for /api/tasks
- - backend/server.js — Server bootstrap and DB connection
- - frontend/src/components/TaskForm.jsx — Create task form; portal dropdown
- - frontend/src/components/TaskList.jsx — List, edit, delete tasks; anchored dropdowns
- - frontend/src/App.jsx — Top-level state and data fetching
+- backend/src/models/task.model.js — Task schema (title, description, status, timestamps)
+- backend/src/routes/taskRoutes.js — CRUD endpoints for /api/tasks
+- backend/server.js — Server bootstrap and DB connection
+- frontend/src/components/TaskForm.jsx — Create task form; portal dropdown
+- frontend/src/components/TaskList.jsx — List, edit, delete tasks; anchored dropdowns
+- frontend/src/App.jsx — Top-level state and data fetching
+
+## Screenshots
+
+Use a responsive <picture> so GitHub (and browsers) show screenshot 1 on large viewports and screenshot 2 on small viewports.
+
+<p align="center">
+  <picture>
+    <!-- large screens -->
+    <source media="(min-width: 800px)" src="/frontend/src/assets/screenshot-1.png">
+    <!-- small screens (fallback) -->
+    <img src="/frontend/src/assets/screenshot-2.png" alt="Task Manager preview" style="max-width:100%; height:auto; border-radius:8px;">
+  </picture>
+</p>
+
+Clickable full-size images:
+
+- Large: [assets/screenshot-1.png](assets/screenshot-1.png)
+- Small: [assets/screenshot-2.png](assets/screenshot-2.png)
+
