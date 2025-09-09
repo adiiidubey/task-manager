@@ -1,4 +1,3 @@
-
 const express = require("express");
 const Task = require("../models/task.model");
 
@@ -16,7 +15,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// Read all tasks (with optional filter by status)
+// Read all tasks
 router.get("/", async (req, res, next) => {
   try {
     const { status } = req.query;
